@@ -1248,7 +1248,9 @@ export class SearchView extends ViewPane {
 	}
 
 	togglePreserveCase(): void {
-		this.searchWidget.replaceInput.setPreserveCase(!this.searchWidget.replaceInput.getPreserveCase());
+		const newState = !this.searchWidget.replaceInput.getPreserveCase();
+		this.searchWidget.replaceInput.setPreserveCase(newState);
+		this.viewModel.preserveCase = newState;
 		this.triggerQueryChange();
 	}
 
